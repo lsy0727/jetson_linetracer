@@ -4,7 +4,7 @@ using namespace cv;
 
 void video_open()
 {
-    VideoCapture source("/home/linux/lsy/vscode_ws/simulation/5_lt_cw_100rpm_out.mp4");
+    VideoCapture source("/home/linux/lsy/vscode_ws/simulation/7_lt_ccw_100rpm_in.mp4");
     if (!source.isOpened()) { cerr << "video open failed!" << endl; return; }
 
     Mat frame, gray, thresh;
@@ -17,17 +17,19 @@ void video_open()
     // int pos;
     // createTrackbar("threshold", "thresh", &pos, 255);
     
-    Point tmp_point(thresh.cols / 2, thresh.rows - 1);    // 이전 위치 저장 좌표
     bool first_run = true; // 최초 실행 여부 플래그
 
-    int num = 0, index;
+    int index;
     double dist;
     vector<double> dist_list;
+    Point tmp_point;
     while (1)
     {
         source >> frame;
         if (frame.empty()) { cerr << "empty frame" << endl; break; }
         cvtColor(frame, gray, COLOR_BGR2GRAY);
+        Scalar bright_avg = mean(gray); //gray영상의 평균 밝기 값
+        gray = gray + (100 - bright_avg[0]);
         threshold(gray, thresh, 130, 255, THRESH_BINARY);
 
         // 자를 사각형 범위
@@ -37,6 +39,11 @@ void video_open()
         int r_height = thresh.rows - r_pts2;    //높이
         Rect r(r_pts1, r_pts2, r_width, r_height);
         thresh = thresh(r);
+        if (first_run)
+        {
+            tmp_point = Point(thresh.cols / 2, thresh.rows - 1);    // 이전 위치 저장 좌표
+            first_run = false;
+        }
 
         //객체 검출
         Mat labels, stats, centroids;
@@ -78,21 +85,22 @@ void video_open()
                     double y = centroids.at<double>(i, 1);  // 객체의 무게중심 y 좌표
                     circle(thresh, Point(cvRound(x), cvRound(y)), 5, Scalar(0, 0, 255), -1); // 무게중심에 빨간색 점 그리기
                     
-                    cout << "dist:" << dist << "\tmin_dist:" << min_dist << endl;
-                    // cout << "x:" << stats.at<int>(i, 0) << "\ty:" << stats.at<int>(i, 1)
-                    // << "\tw:" << stats.at<int>(i, 2) << " \th:" << stats.at<int>(i, 3) << "\tarea:" << stats.at<int>(i, 4) << endl;
+                    cout << "x:" << stats.at<int>(i, 0) << "\ty:" << stats.at<int>(i, 1)
+                        << "\tw:" << stats.at<int>(i, 2) << " \th:" << stats.at<int>(i, 3) << "\tarea:" << stats.at<int>(i, 4) << endl;
 
+                    //error = thresh.cols / 2 - (stats.at<int>(i, 0) + stats.at<int>(i, 3) / 2);  //error = 로봇의 중심 x좌표 - 라인의 중심 x좌표
                     tmp_point = Point(x, y);
                 }
                 else
                 {
                     rectangle(thresh, Rect(stats.at<int>(i, 0), stats.at<int>(i, 1), stats.at<int>(i, 2), stats.at<int>(i, 3)), Scalar(255, 0, 0));
+                    double x = centroids.at<double>(i, 0);  // 객체의 무게중심 x 좌표
+                    double y = centroids.at<double>(i, 1);  // 객체의 무게중심 y 좌표
+                    circle(thresh, Point(cvRound(x), cvRound(y)), 5, Scalar(255, 0, 0), -1); // 무게중심에 빨간색 점 그리기
                 }
             }
         }
         dist_list.clear();  //벡터 초기화
-        
-        first_run = false;
 
         imshow("frame", frame);
         imshow("gray", gray);
