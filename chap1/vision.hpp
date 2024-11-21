@@ -12,6 +12,6 @@ using namespace cv;
 void preprocess(VideoCapture& source, Mat& frame, Mat& gray, Mat& thresh);
 void findObjects(const Mat& thresh, Point& tmp_point, Mat& result, Mat& stats, Mat& centroids);
 void drawObjects(const Mat& labels, const Mat& stats, const Mat& centroids, const Point& tmp_points, Mat& result);
-int geterror(Mat& thresh);
+int getError(const Mat& result, const Point& tmp_points);
 
 #endif //_VISION_HPP_
