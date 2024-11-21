@@ -22,7 +22,7 @@ void preprocess(VideoCapture& source, Mat& frame, Mat& gray, Mat& thresh) {
 }
 
 // 객체 찾기
-void findObjects(const Mat& thresh, Point& tmp_point, Mat& result, Mat& stats, Mat& centroids) {
+void findObjects(const Mat& thresh, Point& tmp_pt, Point& prev_pt, Mat& result, Mat& stats, Mat& centroids) {
     // 객체검출
     Mat labels;
     int cnt = connectedComponentsWithStats(thresh, labels, stats, centroids);
@@ -40,29 +40,31 @@ void findObjects(const Mat& thresh, Point& tmp_point, Mat& result, Mat& stats, M
         if (area > 100) {
             int x = cvRound(centroids.at<double>(i, 0));
             int y = cvRound(centroids.at<double>(i, 1));
-            int dist = norm(Point(x, y) - tmp_point);   //거리 계산
+            int dist = norm(Point(x, y) - tmp_pt);   //거리 계산
             
-            if (dist < min_dist && dist <= 100) {   //거리가 최소값보다 작고 설정한 최소 거리이내인 경우
+            if (dist < min_dist && dist <= 150) {   //거리가 최소값보다 작고 설정한 최소 거리이내인 경우
                 min_dist = dist;
                 min_index = i;
             }
         }
     }
-    if (min_index != -1 && min_dist <= 100) // 설정한 최소 거리 내에 객체가 있는 경우
-        tmp_point = Point(cvRound(centroids.at<double>(min_index, 0)), cvRound(centroids.at<double>(min_index, 1)));    //tmp_point 갱신
+    if (min_index != -1 && min_dist <= 150) { // 설정한 최소 거리 내에 객체가 있는 경우
+        tmp_pt = Point(cvRound(centroids.at<double>(min_index, 0)), cvRound(centroids.at<double>(min_index, 1)));    //tmp_pt 갱신
+        prev_pt = tmp_pt;
+    }
     else    //객체가 사라진경우
-        tmp_point = Point(thresh.cols/2, thresh.rows - 1);  //tmp_point 초기화
+        tmp_pt = prev_pt;  //tmp_pt 초기화
 }
 
 // 객체 표시
-void drawObjects(const Mat& labels, const Mat& stats, const Mat& centroids, const Point& tmp_point, Mat& result) {
+void drawObjects(const Mat& labels, const Mat& stats, const Mat& centroids, const Point& tmp_pt, Mat& result) {
     for (int i = 1; i < stats.rows; i++) {
         int area = stats.at<int>(i, 4);
         if (area > 100) {
             int x = cvRound(centroids.at<double>(i, 0));
             int y = cvRound(centroids.at<double>(i, 1));
 
-            if (x == tmp_point.x) {
+            if (x == tmp_pt.x) {
                 rectangle(result, Rect(stats.at<int>(i, 0), stats.at<int>(i, 1), stats.at<int>(i, 2), stats.at<int>(i, 3)), Scalar(0, 0, 255));
                 circle(result, Point(x, y), 5, Scalar(0, 0, 255), -1);
             }
@@ -75,6 +77,6 @@ void drawObjects(const Mat& labels, const Mat& stats, const Mat& centroids, cons
 }
 
 // error 계산
-int getError(const Mat& result, const Point& tmp_point) {
-    return ((result.cols / 2) - tmp_point.x);
+int getError(const Mat& result, const Point& prev_pt) {
+    return ((result.cols / 2) - prev_pt.x);
 }
