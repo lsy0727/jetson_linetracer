@@ -57,7 +57,7 @@ void findObjects(const Mat& thresh, Point& tmp_pt, Point& prev_pt, Mat& result, 
 }
 
 // 객체 표시
-void drawObjects(const Mat& labels, const Mat& stats, const Mat& centroids, const Point& tmp_pt, Mat& result) {
+void drawObjects(const Mat& stats, const Mat& centroids, const Point& tmp_pt, Mat& result) {
     for (int i = 1; i < stats.rows; i++) {
         int area = stats.at<int>(i, 4);
         if (area > 100) {
@@ -72,6 +72,7 @@ void drawObjects(const Mat& labels, const Mat& stats, const Mat& centroids, cons
                 rectangle(result, Rect(stats.at<int>(i, 0), stats.at<int>(i, 1), stats.at<int>(i, 2), stats.at<int>(i, 3)), Scalar(255, 0, 0));
                 circle(result, Point(x, y), 5, Scalar(255, 0, 0), -1);
             }
+            
         }
     }
 }
