@@ -23,34 +23,42 @@ void preprocess(VideoCapture& source, Mat& frame, Mat& gray, Mat& thresh) {
 
 // 객체 찾기
 void findObjects(const Mat& thresh, Point& tmp_point, Mat& result, Mat& stats, Mat& centroids) {
+    // 객체검출
     Mat labels;
     int cnt = connectedComponentsWithStats(thresh, labels, stats, centroids);
 
+    // 1채널 -> 3채널 변환
     result = thresh.clone();
     cvtColor(result, result, COLOR_GRAY2BGR);
 
+    int min_index = -1;
     int min_dist = result.cols; // 거리 최소값 저장
+
     for (int i = 1; i < cnt; i++) {
         int area = stats.at<int>(i, 4); // 객체 면적
 
-        if (area < 5000 && area > 1000) {
+        if (area > 100) {
             int x = cvRound(centroids.at<double>(i, 0));
             int y = cvRound(centroids.at<double>(i, 1));
-            int dist = abs(x - tmp_point.x);
-
-            if (dist < min_dist) {
+            int dist = norm(Point(x, y) - tmp_point);   //거리 계산
+            
+            if (dist < min_dist && dist <= 100) {   //거리가 최소값보다 작고 설정한 최소 거리이내인 경우
                 min_dist = dist;
-                tmp_point = Point(x, y);
+                min_index = i;
             }
         }
     }
+    if (min_index != -1 && min_dist <= 100) // 설정한 최소 거리 내에 객체가 있는 경우
+        tmp_point = Point(cvRound(centroids.at<double>(min_index, 0)), cvRound(centroids.at<double>(min_index, 1)));    //tmp_point 갱신
+    else    //객체가 사라진경우
+        tmp_point = Point(thresh.cols/2, thresh.rows - 1);  //tmp_point 초기화
 }
 
 // 객체 표시
 void drawObjects(const Mat& labels, const Mat& stats, const Mat& centroids, const Point& tmp_point, Mat& result) {
-    for (int i = 0; i < stats.rows; i++) {
+    for (int i = 1; i < stats.rows; i++) {
         int area = stats.at<int>(i, 4);
-        if (area < 5000 && area > 1000) {
+        if (area > 100) {
             int x = cvRound(centroids.at<double>(i, 0));
             int y = cvRound(centroids.at<double>(i, 1));
 
@@ -64,4 +72,9 @@ void drawObjects(const Mat& labels, const Mat& stats, const Mat& centroids, cons
             }
         }
     }
+}
+
+// error 계산
+int getError(const Mat& result, const Point& tmp_point) {
+    return ((result.cols / 2) - tmp_point.x);
 }
