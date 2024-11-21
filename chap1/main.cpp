@@ -29,7 +29,7 @@ int main() {
         // 객체 찾기
         findObjects(thresh, tmp_pt, prev_pt, result, stats, centroids);  // stats와 centroids 추가
         // 객체 그리기
-        drawObjects(result, stats, centroids, tmp_pt, result);  // stats와 centroids 추가
+        drawObjects(stats, centroids, tmp_pt, result);  // stats와 centroids 추가
         // error 계산
         error = getError(result, prev_pt);
         cout << "error : " << error << endl;
