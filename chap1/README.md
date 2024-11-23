@@ -1,5 +1,7 @@
 # vision.cpp
 
+https://github.com/lsy0727/jetson_linetracer/blob/cd84c6d91a136ec3304e6f48c4f18abb1a66b83e/chap1/vision.cpp#L6-L22
+
 ## 설명
 
 
