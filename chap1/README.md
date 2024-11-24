@@ -8,6 +8,10 @@ https://github.com/lsy0727/jetson_linetracer/blob/cd84c6d91a136ec3304e6f48c4f18a
 
 preprocess()함수 : 영상 전처리 함수
 
+line 14~15 : 영상의 밝기 보정 (평균 100으로)
+
+line 16 : 임계값 너무 작으면 노이즈가 생기고, 높으면 라인이 사라짐. 너무높지만 않으면 130보다 좀더 높아도 괜찮음.
+
 https://github.com/lsy0727/jetson_linetracer/blob/c10f8092c896652d5c61a2662164b3eff3ca4788/chap1/vision.cpp#L25-L57
 
 findObjects()함수 : 객체 검출 함수
