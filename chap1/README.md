@@ -51,7 +51,9 @@ https://github.com/lsy0727/jetson_linetracer/blob/f5e2ad87f9b77e8ca2da1fdaf8de13
 
 https://github.com/lsy0727/jetson_linetracer/blob/d10a9cc21ece733cbd4b873532d85b372977e961/chap1/main.cpp#L40
 
-error = (로봇의 중심x좌표) - (메인라인의 중심x좌표)
+현 시점 error 계산
+
+https://github.com/lsy0727/jetson_linetracer/blob/2d947b356bf090cd9afc0f4353637d248320d3ad/chap1/main.cpp#L24
 
 ## 실행결과
 
