@@ -49,6 +49,10 @@ https://github.com/lsy0727/jetson_linetracer/blob/f5e2ad87f9b77e8ca2da1fdaf8de13
   
 2. 메인라인은 빨간색 바운딩 박스와 중심점, 나머지 라인은 파란색 바운딩 박스와 중심점 표시
 
+https://github.com/lsy0727/jetson_linetracer/blob/d10a9cc21ece733cbd4b873532d85b372977e961/chap1/main.cpp#L40
+
+error = (로봇의 중심x좌표) - (메인라인의 중심x좌표)
+
 ## 실행결과
 
 https://www.youtube.com/watch?v=y1GEPU2oyZY
