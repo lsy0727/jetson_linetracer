@@ -37,7 +37,9 @@ https://github.com/lsy0727/jetson_linetracer/blob/261123a09fc331b84b7809f7bebc75
 
 영상 전처리
 
+https://github.com/lsy0727/jetson_linetracer/blob/c406770232e3fcdf98741f6cffa880b8882f5814/chap1/main.cpp#L30-L33
 
+최초 실행시 기준 설정
 
 
 ## 실행결과
