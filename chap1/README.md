@@ -17,3 +17,5 @@ https://github.com/lsy0727/jetson_linetracer/blob/82b25fbad80dfb97adc4edf82c793f
 영상을 불러옴
 
 ## 실행결과
+
+https://www.youtube.com/watch?v=y1GEPU2oyZY
