@@ -16,6 +16,7 @@ line 14~15 : 영상의 밝기 보정 (평균 100으로)
 
 line 16 : 임계값 너무 작으면 노이즈가 생기고, 높으면 라인이 사라짐. 너무높지만 않으면 130보다 좀더 높아도 괜찮음.
 
+
 https://github.com/lsy0727/jetson_linetracer/blob/518bdbc38410d976e7e0ab2a2254c8752fe51c04/chap1/vision.cpp#L25-L55
 
 * findObjects()함수 : 객체 검출 함수
@@ -32,13 +33,21 @@ line 45~48 :  현재 영상에서 검출된 객체 중 가장 거리가 짧고, 
 
 2. 객체가 없는 경우는 업데이트되지 않아, 사라지기 직전 프레임의 위치를 기준으로 찾음.
 
+
 https://github.com/lsy0727/jetson_linetracer/blob/9540471302642aa60b5962cbea6eeeb34a4581d9/chap1/vision.cpp#L58-L76
 
-* drawObjects()함수 : 객체범위를 표시해주는 함수
+* drawObjects()함수 : 객체와 기준점을 표시해주는 함수
+
+tmp_pt : 메인라인의 무게중심 좌표가 저장되어있음
+
+메인라인에는 빨간색 바운딩박스와 점을 찍고, 나머지 라인에는 파란색 바운딩박스와 점을 찍음.
+
 
 https://github.com/lsy0727/jetson_linetracer/blob/40fa32b5a97dcdbc3ce62d765fc419cf18c0d639/chap1/vision.cpp#L81-L83
 
 * getError()함수 : 위치오차를 계산해주는 함수
+
+error = (로봇 중앙 x좌표) - (메인라인 중앙 x좌표)
 
 (-)인 경우 : 라인이 오른쪽에 있음
 
@@ -77,7 +86,11 @@ https://github.com/lsy0727/jetson_linetracer/blob/2d947b356bf090cd9afc0f4353637d
 
 https://github.com/lsy0727/jetson_linetracer/blob/2b5a30f8590fb0121b22cc7615241dde43cb77da/chap1/main.cpp#L45-L47
 
-시간계산 후 시간과 error출력
+line 24 : 반복문 시작시 시간계산 시작
+
+line 45 : 시간계산 종료
+
+line 46 : 걸린 시간 계산(sec)
 
 https://github.com/lsy0727/jetson_linetracer/blob/000168e56e40655f6ae08b9b924d29e525f42a4e/chap1/main.cpp#L50-L52
 
