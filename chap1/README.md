@@ -10,7 +10,7 @@ https://www.youtube.com/watch?v=y1GEPU2oyZY
 
 https://github.com/lsy0727/jetson_linetracer/blob/cd84c6d91a136ec3304e6f48c4f18abb1a66b83e/chap1/vision.cpp#L6-L22
 
-preprocess()함수 : 영상 전처리 함수
+* preprocess()함수 : 영상 전처리 함수
 
 line 14~15 : 영상의 밝기 보정 (평균 100으로)
 
@@ -18,23 +18,27 @@ line 16 : 임계값 너무 작으면 노이즈가 생기고, 높으면 라인이
 
 https://github.com/lsy0727/jetson_linetracer/blob/518bdbc38410d976e7e0ab2a2254c8752fe51c04/chap1/vision.cpp#L25-L55
 
-findObjects()함수 : 객체 검출 함수
+* findObjects()함수 : 객체 검출 함수
 
 현재 검출된 객체(라인)들과 이전 프레임에서의 메인라인의 무게중심 점의 차이를 이용해 메인라인을 업데이트함.
 
 거리는 150이하인 경우로 설정
 
-(100일 때는 회전시에 급격한 변화가 생기면 라인을 놓치는 경우가 생기고, 150이 넘으면 다른 라인을 메인라인으로 변경해버리는 경우가 생김)
+이유 : (100일 때는 회전시에 급격한 변화가 생기면 라인을 놓치는 경우가 생기고, 150이 넘으면 다른 라인을 메인라인으로 변경해버리는 경우가 생김)
 
-메인 라인이 업데이트 되는 경우(메인 라인이라고 인식한 객체가 존재하는 경우) 검출된 메인 라인의 좌표를 tmp_pt에 저장하고, 다음 라인검출시 비교용도로 사용
+line 45~48 :  현재 영상에서 검출된 객체 중 가장 거리가 짧고, 이전 객체와 거리가 150이하인경우 객체가 있다고 판단( -> min_index 업데이트 )
+
+1. 메인 라인이 업데이트 되는 경우(min_index가 업데이트 된 경우) 검출된 메인 라인의 좌표를 tmp_pt에 저장하고, 다음 라인검출시 비교용도로 사용
+
+2. 객체가 없는 경우는 업데이트되지 않아, 사라지기 직전 프레임의 위치를 기준으로 찾음.
 
 https://github.com/lsy0727/jetson_linetracer/blob/9540471302642aa60b5962cbea6eeeb34a4581d9/chap1/vision.cpp#L58-L76
 
-drawObjects()함수 : 객체범위를 표시해주는 함수
+* drawObjects()함수 : 객체범위를 표시해주는 함수
 
 https://github.com/lsy0727/jetson_linetracer/blob/40fa32b5a97dcdbc3ce62d765fc419cf18c0d639/chap1/vision.cpp#L81-L83
 
-getError()함수 : 위치오차를 계산해주는 함수
+* getError()함수 : 위치오차를 계산해주는 함수
 
 (-)인 경우 : 라인이 오른쪽에 있음
 
