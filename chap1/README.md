@@ -1,12 +1,10 @@
-# 영상처리 라이브러리
-
-## 실행결과
+# 실행결과
 
 https://www.youtube.com/watch?v=y1GEPU2oyZY
 
-## <vision.cpp>
+# <vision.cpp>
 
-### 설명
+## 설명
 
 https://github.com/lsy0727/jetson_linetracer/blob/cd84c6d91a136ec3304e6f48c4f18abb1a66b83e/chap1/vision.cpp#L6-L22
 
@@ -54,9 +52,9 @@ error = (로봇 중앙 x좌표) - (메인라인 중앙 x좌표)
 (+)인 경우 : 라인이 왼쪽에 있음
 
 
-## <main.cpp>
+# <main.cpp>
 
-### 설명
+## 설명
 
 https://github.com/lsy0727/jetson_linetracer/blob/82b25fbad80dfb97adc4edf82c793f36b098455e/chap1/main.cpp#L6-L10
 
