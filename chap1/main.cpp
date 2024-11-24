@@ -13,7 +13,7 @@ int main() {
     // int delay = cvRound(1000 / fps);
 
     bool first_run = true;
-    Point tmp_pt, prev_pt;
+    Point tmp_pt;
     Mat frame, gray, thresh, result, stats, centroids;
     int error;
 
@@ -33,11 +33,11 @@ int main() {
         }
 
         // 객체 찾기
-        findObjects(thresh, tmp_pt, prev_pt, result, stats, centroids);  // stats와 centroids 추가
+        findObjects(thresh, tmp_pt, result, stats, centroids);  // stats와 centroids 추가
         // 객체 그리기
         drawObjects(stats, centroids, tmp_pt, result);  // stats와 centroids 추가
         // error 계산
-        error = getError(result, prev_pt);
+        error = getError(result, tmp_pt);
 
         // 'Esc' 키를 눌러 종료
         if (waitKey(30) == 27) break;
