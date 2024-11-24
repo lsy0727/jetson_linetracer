@@ -1,4 +1,5 @@
 #include "vision.hpp"
+#include <sys/time.h>
 using namespace std;
 using namespace cv;
 
@@ -8,15 +9,20 @@ int main() {
         cerr << "video open failed!" << endl;
         return -1;
     }
-    double fps = source.get(CAP_PROP_FPS);
-    int delay = cvRound(1000 / fps);
+    // double fps = source.get(CAP_PROP_FPS);
+    // int delay = cvRound(1000 / fps);
 
     bool first_run = true;
     Point tmp_pt, prev_pt;
     Mat frame, gray, thresh, result, stats, centroids;
     int error;
 
+    struct timeval start, end1;
+    double diff1;
+
     while (true) {
+        gettimeofday(&start,NULL);  //시작
+
         preprocess(source, frame, gray, thresh);  // 전처리
         if (thresh.empty()) break;
 
@@ -32,15 +38,18 @@ int main() {
         drawObjects(stats, centroids, tmp_pt, result);  // stats와 centroids 추가
         // error 계산
         error = getError(result, prev_pt);
-        cout << "error : " << error << endl;
-
-        // 결과 출력
-        // imshow("frame", frame);
-        // imshow("gray", gray);
-        imshow("thresh", result);
 
         // 'Esc' 키를 눌러 종료
-        if (waitKey(delay) == 27) break;
+        if (waitKey(30) == 27) break;
+
+        gettimeofday(&end1,NULL);   //종료시간
+        diff1=end1.tv_sec + end1.tv_usec/1000000.0 - start.tv_sec - start.tv_usec/1000000.0;
+        cout << "error : " << error << "\ttime : " << diff1 << endl;
+
+        // 결과 출력
+        imshow("frame", frame);
+        // imshow("gray", gray);
+        imshow("thresh", result);
     }
 
     return 0;
