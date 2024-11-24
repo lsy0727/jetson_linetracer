@@ -59,6 +59,14 @@ https://github.com/lsy0727/jetson_linetracer/blob/2b5a30f8590fb0121b22cc7615241d
 
 시간계산 후 시간과 error출력
 
+https://github.com/lsy0727/jetson_linetracer/blob/000168e56e40655f6ae08b9b924d29e525f42a4e/chap1/main.cpp#L50-L52
+
+frame : 기본 영상
+
+gray : 흑백 영상
+
+thresh : 최종 결과 영상
+
 ## 실행결과
 
 https://www.youtube.com/watch?v=y1GEPU2oyZY
