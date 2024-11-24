@@ -41,6 +41,13 @@ https://github.com/lsy0727/jetson_linetracer/blob/c406770232e3fcdf98741f6cffa880
 
 최초 실행시 기준 설정
 
+https://github.com/lsy0727/jetson_linetracer/blob/f5e2ad87f9b77e8ca2da1fdaf8de13d5fb2534df/chap1/main.cpp#L35-L38
+
+최초 실행시의 기준 라인을 메인라인으로 생각했을 때
+
+1. 객체(라인)을 모두 찾음
+  
+2. 메인라인은 빨간색 바운딩 박스와 중심점, 나머지 라인은 파란색 바운딩 박스와 중심점 표시
 
 ## 실행결과
 
