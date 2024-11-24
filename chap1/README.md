@@ -8,6 +8,10 @@ https://github.com/lsy0727/jetson_linetracer/blob/c10f8092c896652d5c61a2662164b3
 
 findObjects()함수 : 객체 검출 함수
 
+https://github.com/lsy0727/jetson_linetracer/blob/539a22c043c9ed35942077eefe665d25f007fd9b/chap1/vision.cpp#L60-L78
+
+drawObjects()함수 : 객체범위를 표시해주는 함수
+
 ## 설명
 
 
