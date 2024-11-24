@@ -22,7 +22,7 @@ void preprocess(VideoCapture& source, Mat& frame, Mat& gray, Mat& thresh) {
 }
 
 // 객체 찾기
-void findObjects(const Mat& thresh, Point& tmp_pt, Point& prev_pt, Mat& result, Mat& stats, Mat& centroids) {
+void findObjects(const Mat& thresh, Point& tmp_pt, Mat& result, Mat& stats, Mat& centroids) {
     // 객체검출
     Mat labels;
     int cnt = connectedComponentsWithStats(thresh, labels, stats, centroids);
@@ -50,10 +50,8 @@ void findObjects(const Mat& thresh, Point& tmp_pt, Point& prev_pt, Mat& result, 
     }
     if (min_index != -1 && min_dist <= 150) { // 설정한 최소 거리 내에 객체가 있는 경우
         tmp_pt = Point(cvRound(centroids.at<double>(min_index, 0)), cvRound(centroids.at<double>(min_index, 1)));    //tmp_pt 갱신
-        prev_pt = tmp_pt;
+        //prev_pt = tmp_pt;
     }
-    else    //객체가 사라진경우
-        tmp_pt = prev_pt;  //tmp_pt 초기화
 }
 
 // 객체 표시
@@ -78,6 +76,6 @@ void drawObjects(const Mat& stats, const Mat& centroids, const Point& tmp_pt, Ma
 }
 
 // error 계산
-int getError(const Mat& result, const Point& prev_pt) {
-    return ((result.cols / 2) - prev_pt.x);
+int getError(const Mat& result, const Point& tmp_pt) {
+    return ((result.cols / 2) - tmp_pt.x);
 }
