@@ -33,6 +33,12 @@ https://github.com/lsy0727/jetson_linetracer/blob/82b25fbad80dfb97adc4edf82c793f
 
 영상을 불러옴
 
+https://github.com/lsy0727/jetson_linetracer/blob/261123a09fc331b84b7809f7bebc751cf8640e5e/chap1/main.cpp#L26-L27
+
+영상 전처리
+
+
+
 
 ## 실행결과
 
