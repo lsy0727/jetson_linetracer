@@ -30,9 +30,8 @@ findObjects()함수 : 객체 검출 함수
 
 검출된 메인 라인의 좌표를 tmp_pt에 저장하고, 다음 라인검출시 비교용도로 사용
 
-prev_pt : 
 
-https://github.com/lsy0727/jetson_linetracer/blob/539a22c043c9ed35942077eefe665d25f007fd9b/chap1/vision.cpp#L60-L78
+https://github.com/lsy0727/jetson_linetracer/blob/9540471302642aa60b5962cbea6eeeb34a4581d9/chap1/vision.cpp#L58-L76
 
 drawObjects()함수 : 객체범위를 표시해주는 함수
 
