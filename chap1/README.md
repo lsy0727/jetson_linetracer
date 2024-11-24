@@ -1,6 +1,10 @@
 # 영상처리 라이브러리
 
-## vision.cpp
+## 실행결과
+
+https://www.youtube.com/watch?v=y1GEPU2oyZY
+
+## <vision.cpp>
 
 ### 설명
 
@@ -29,7 +33,7 @@ getError()함수 : 위치오차를 계산해주는 함수
 (+)인 경우 : 라인이 왼쪽에 있음
 
 
-## main.cpp
+## <main.cpp>
 
 ### 설명
 
@@ -70,7 +74,3 @@ frame : 기본 영상
 gray : 흑백 영상
 
 thresh : 최종 결과 영상
-
-## 실행결과
-
-https://www.youtube.com/watch?v=y1GEPU2oyZY
