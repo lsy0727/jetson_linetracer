@@ -55,6 +55,10 @@ https://github.com/lsy0727/jetson_linetracer/blob/d10a9cc21ece733cbd4b873532d85b
 
 https://github.com/lsy0727/jetson_linetracer/blob/2d947b356bf090cd9afc0f4353637d248320d3ad/chap1/main.cpp#L24
 
+https://github.com/lsy0727/jetson_linetracer/blob/2b5a30f8590fb0121b22cc7615241dde43cb77da/chap1/main.cpp#L45-L47
+
+시간계산 후 시간과 error출력
+
 ## 실행결과
 
 https://www.youtube.com/watch?v=y1GEPU2oyZY
