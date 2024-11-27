@@ -94,7 +94,7 @@ int main() {
         }
 
         // 모터 제어
-        k = (k/10.0) * 10;
+        k = (error/10.0) * 10;  // 게인값 조정(10미만은 *10, 10이상은 10~100으로 제한) / 대안2 : error범위마다 k값 임의로 지정
         vel1 = 100 - k*error;
         vel2 = -(100 + k*error);
         if (control) mx.setVelocity(vel1, vel2);
