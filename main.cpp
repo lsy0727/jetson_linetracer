@@ -10,25 +10,60 @@ using namespace cv;
 bool ctrl_c_pressed= false;
 void ctrlc_handler(int) { ctrl_c_pressed= true; }
 int main() {
+    // string src = "nvarguscamerasrc sensor-id=0 ! \
+    //     video/x-raw(memory:NVMM), width=(int)640, height=(int)360, \
+    //     format=(string)NV12, framerate=(fraction)30/1 ! \
+    //     nvvidconv flip-method=0 ! video/x-raw, \
+    //     width=(int)640, height=(int)360, format=(string)BGRx ! \
+    //     videoconvert ! video/x-raw, format=(string)BGR ! appsink";
+    // VideoCapture source(src, CAP_GSTREAMER);
+    // if (!source.isOpened()) { cout << "Camera error" << endl; return -1; }
+
+    // string dst1 = "appsrc ! videoconvert ! video/x-raw, format=BGRx ! \
+    //     nvvidconv ! nvv4l2h264enc insert-sps-pps=true ! \
+    //     h264parse ! rtph264pay pt=96 ! \
+    //     udpsink host=203.234.58.164 port=8001 sync=false";
+    // VideoWriter writer1(dst1, 0, (double)30, Size(640, 360), true);
+    // if (!writer1.isOpened()) { cerr << "Writer open failed!" << endl; return -1;}
+
+    // string dst2 = "appsrc ! videoconvert ! video/x-raw, format=BGRx ! \
+    //     nvvidconv ! nvv4l2h264enc insert-sps-pps=true ! \
+    //     h264parse ! rtph264pay pt=96 ! \
+    //     udpsink host=203.234.58.164 port=8002 sync=false";
+    // VideoWriter writer2(dst2, 0, (double)30, Size(640, 360), false);
+    // if (!writer2.isOpened()) { cerr << "Writer open failed!" << endl; return -1;}
+
+    // string dst3 = "appsrc ! videoconvert ! video/x-raw, format=BGRx ! \
+    //     nvvidconv ! nvv4l2h264enc insert-sps-pps=true ! \
+    //     h264parse ! rtph264pay pt=96 ! \
+    //     udpsink host=203.234.58.164 port=8003 sync=false";
+    // VideoWriter writer3(dst3, 0, (double)30, Size(640, 360), false);
+    // if (!writer3.isOpened()) { cerr << "Writer open failed!" << endl; return -1;}
+
     VideoCapture source("/home/linux/lsy/vscode_ws/simulation/7_lt_ccw_100rpm_in.mp4");
     if (!source.isOpened()) {
         cerr << "video open failed!" << endl;
         return -1;
     }
 
+    //vision
     bool first_run = true;
     Point tmp_pt;
     Mat frame, gray, thresh, result, stats, centroids;
     int error;
+    
+    double k = 1;   // 게인값
 
+    //dxl
     Dxl mx;
     if(!mx.open()) { cout <<"dynamixel open error"<<endl; return-1; }
-    bool control = false;
+    bool mode = false;
+    int vel1 = 0, vel2 = 0; // 좌우 바퀴 속도
 
-    // 시간 관련 변수
+    //  time
     struct timeval start, end1;
     double time1;
-    int vel1 = 0, vel2 = 0;
+
     // 시그널
     signal(SIGINT, ctrlc_handler);
 
@@ -54,19 +89,14 @@ int main() {
         if (mx.kbhit()) // 키보드입력체크
         {
             char c = mx.getch();    // 키입력받기
-            if (c == 's') {
-                vel1 = 100;
-                vel2 = 100;
-                control = true;
-            }
+            if (c == 's') { mode = true; }
+            else if (c == 'q') break;
         }
 
-        // 모터 제어**************************************************************************
-        if (control) {
-            vel1 = vel1-error;
-            vel2 = -(vel2+error);
-            mx.setVelocity(vel1, vel2);
-        }   //********************************************************************************
+        // 모터 제어
+        vel1 = 100 - k*error;
+        vel2 = -(100 + k*error);
+        if (control) mx.setVelocity(vel1, vel2);
 
         if (ctrl_c_pressed) break;  //ctrl+c 입력시 탈출
         usleep(30*1000);
@@ -79,6 +109,9 @@ int main() {
         imshow("frame", frame);
         // imshow("gray", gray);
         imshow("thresh", result);
+        // writer1 << frame;
+        // writer2 << gray;
+        // writer3 << thresh;
     }
     mx.close();
     return 0;
