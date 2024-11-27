@@ -94,6 +94,7 @@ int main() {
         }
 
         // 모터 제어
+        k = (k/10.0) * 10;
         vel1 = 100 - k*error;
         vel2 = -(100 + k*error);
         if (control) mx.setVelocity(vel1, vel2);
