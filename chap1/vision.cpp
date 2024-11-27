@@ -50,8 +50,8 @@ void findObjects(const Mat& thresh, Point& tmp_pt, Mat& result, Mat& stats, Mat&
     }
     if (min_index != -1 && min_dist <= 150) { // 설정한 최소 거리 내에 객체가 있는 경우
         tmp_pt = Point(cvRound(centroids.at<double>(min_index, 0)), cvRound(centroids.at<double>(min_index, 1)));    //tmp_pt 갱신
-        //prev_pt = tmp_pt;
     }
+    else circle(result, Point(tmp_pt.x, tmp_pt.y), 5, Scalar(0, 0, 255), -1);
 }
 
 // 객체 표시
