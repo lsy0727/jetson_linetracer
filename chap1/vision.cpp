@@ -22,17 +22,16 @@ void preprocess(VideoCapture& source, Mat& frame, Mat& gray, Mat& thresh) {
 }
 
 // 객체 찾기
-void findObjects(const Mat& thresh, Point& tmp_pt, Mat& result, Mat& stats, Mat& centroids) {
+void findObjects(Mat& thresh, Point& tmp_pt, Mat& stats, Mat& centroids) {
     // 객체검출
     Mat labels;
     int cnt = connectedComponentsWithStats(thresh, labels, stats, centroids);
 
     // 1채널 -> 3채널 변환
-    result = thresh.clone();
-    cvtColor(result, result, COLOR_GRAY2BGR);
+    cvtColor(thresh, thresh, COLOR_GRAY2BGR);
 
     int min_index = -1;
-    int min_dist = result.cols; // 거리 최소값 저장
+    int min_dist = thresh.cols; // 거리 최소값 저장
 
     for (int i = 1; i < cnt; i++) {
         int area = stats.at<int>(i, 4); // 객체 면적
@@ -51,11 +50,12 @@ void findObjects(const Mat& thresh, Point& tmp_pt, Mat& result, Mat& stats, Mat&
     if (min_index != -1 && min_dist <= 150) { // 설정한 최소 거리 내에 객체가 있는 경우
         tmp_pt = Point(cvRound(centroids.at<double>(min_index, 0)), cvRound(centroids.at<double>(min_index, 1)));    //tmp_pt 갱신
     }
-    else circle(result, Point(tmp_pt.x, tmp_pt.y), 5, Scalar(0, 0, 255), -1);
+    else circle(thresh, Point(tmp_pt.x, tmp_pt.y), 5, Scalar(0, 0, 255), -1);
+
 }
 
 // 객체 표시
-void drawObjects(const Mat& stats, const Mat& centroids, const Point& tmp_pt, Mat& result) {
+void drawObjects(const Mat& stats, const Mat& centroids, const Point& tmp_pt, Mat& thresh) {
     for (int i = 1; i < stats.rows; i++) {
         int area = stats.at<int>(i, 4);
         if (area > 100) {
@@ -63,12 +63,12 @@ void drawObjects(const Mat& stats, const Mat& centroids, const Point& tmp_pt, Ma
             int y = cvRound(centroids.at<double>(i, 1));
 
             if (x == tmp_pt.x) {
-                rectangle(result, Rect(stats.at<int>(i, 0), stats.at<int>(i, 1), stats.at<int>(i, 2), stats.at<int>(i, 3)), Scalar(0, 0, 255));
-                circle(result, Point(x, y), 5, Scalar(0, 0, 255), -1);
+                rectangle(thresh, Rect(stats.at<int>(i, 0), stats.at<int>(i, 1), stats.at<int>(i, 2), stats.at<int>(i, 3)), Scalar(0, 0, 255));
+                circle(thresh, Point(x, y), 5, Scalar(0, 0, 255), -1);
             }
             else {
-                rectangle(result, Rect(stats.at<int>(i, 0), stats.at<int>(i, 1), stats.at<int>(i, 2), stats.at<int>(i, 3)), Scalar(255, 0, 0));
-                circle(result, Point(x, y), 5, Scalar(255, 0, 0), -1);
+                rectangle(thresh, Rect(stats.at<int>(i, 0), stats.at<int>(i, 1), stats.at<int>(i, 2), stats.at<int>(i, 3)), Scalar(255, 0, 0));
+                circle(thresh, Point(x, y), 5, Scalar(255, 0, 0), -1);
             }
             
         }
@@ -76,6 +76,6 @@ void drawObjects(const Mat& stats, const Mat& centroids, const Point& tmp_pt, Ma
 }
 
 // error 계산
-int getError(const Mat& result, const Point& tmp_pt) {
-    return ((result.cols / 2) - tmp_pt.x);
+int getError(const Mat& thresh, const Point& tmp_pt) {
+    return ((thresh.cols / 2) - tmp_pt.x);
 }
