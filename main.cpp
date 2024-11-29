@@ -53,7 +53,7 @@ int main() {
     Dxl mx;
     if(!mx.open()) { cout <<"dynamixel open error"<<endl; return-1; }
     bool mode =false;
-    double leftvel = 0, rightvel = 0;
+    double lval = 0, rval = 0;
     double k = 0.5;
 
     while (true) {
@@ -83,15 +83,17 @@ int main() {
         }
         if (ctrl_c_pressed) break;  //ctrl+c 입력시 탈출
 
-        leftvel = 100 - k* error;
-        rightvel = -(100 + k* error);
+        if (100-k*error < 0) lval = 100 - k* error;
+        else lval = -10;
+        if (100-k*error > 0) rval = -(100 + k* error);
+        else rval = 10;
         if(mode) mx.setVelocity(leftvel, rightvel);
 
         usleep(30*1000);
 
         gettimeofday(&end1,NULL);   //종료시간
         diff1=end1.tv_sec + end1.tv_usec/1000000.0 - start.tv_sec - start.tv_usec/1000000.0;
-        cout << "error : " << error << "\tlvel : " << leftvel << "\trvel : " << rightvel << "\ttime : " << diff1 << endl;
+        cout << "error : " << error << "\tlval : " << lval << "\trval : " << rval << "\ttime : " << diff1 << endl;
 
         // 결과 출력
         writer1 << frame;
