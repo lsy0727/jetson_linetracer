@@ -14,7 +14,7 @@ int main() {
 
     bool first_run = true;
     Point tmp_pt;
-    Mat frame, gray, thresh, result, stats, centroids;
+    Mat frame, gray, thresh, stats, centroids;
     int error;
 
     struct timeval start, end1;
@@ -33,11 +33,11 @@ int main() {
         }
 
         // 객체 찾기
-        findObjects(thresh, tmp_pt, result, stats, centroids);  // stats와 centroids 추가
+        findObjects(thresh, tmp_pt, stats, centroids);  // stats와 centroids 추가
         // 객체 그리기
-        drawObjects(stats, centroids, tmp_pt, result);  // stats와 centroids 추가
+        drawObjects(stats, centroids, tmp_pt, thresh);  // stats와 centroids 추가
         // error 계산
-        error = getError(result, tmp_pt);
+        error = getError(thresh, tmp_pt);
 
         // 'Esc' 키를 눌러 종료
         if (waitKey(30) == 27) break;
@@ -49,7 +49,7 @@ int main() {
         // 결과 출력
         imshow("frame", frame);
         // imshow("gray", gray);
-        imshow("thresh", result);
+        imshow("thresh", thresh);
     }
 
     return 0;
