@@ -2,8 +2,6 @@
 #define _VISION_HPP_
 
 #include <iostream>
-#include <cmath>
-#include <vector>
 #include <opencv2/opencv.hpp>
 
 using namespace std;
