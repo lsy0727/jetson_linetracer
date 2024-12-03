@@ -31,7 +31,7 @@ line 45~48 :  현재 영상에서 검출된 객체 중 가장 거리가 짧고, 
 2. 객체가 없는 경우는 업데이트되지 않아, 사라지기 직전 프레임의 위치를 기준으로 찾음.
 
 
-https://github.com/lsy0727/jetson_linetracer/blob/9540471302642aa60b5962cbea6eeeb34a4581d9/chap1/vision.cpp#L58-L76
+https://github.com/lsy0727/jetson_linetracer/blob/429365a2f92a7bafcf0abce4511d2df6eacdcf95/chap1/vision.cpp#L58-L76
 
 * drawObjects()함수 : 객체와 기준점을 표시해주는 함수
 
