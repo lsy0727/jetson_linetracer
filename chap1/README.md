@@ -89,7 +89,7 @@ line 49 : 시간계산 종료
 
 line 50 : 걸린 시간 계산(sec)
 
-https://github.com/lsy0727/jetson_linetracer/blob/000168e56e40655f6ae08b9b924d29e525f42a4e/chap1/main.cpp#L50-L52
+https://github.com/lsy0727/jetson_linetracer/blob/b297930c770bec0a4020062ff96d38788a348cda/chap1/main.cpp#L54-L56
 
 frame : 기본 영상
 
