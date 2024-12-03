@@ -83,11 +83,11 @@ https://github.com/lsy0727/jetson_linetracer/blob/f2d57161b318946144a367d8b9375d
 
 https://github.com/lsy0727/jetson_linetracer/blob/4c6062c110504f4d9ca97dbf874aced3e1052934/chap1/main.cpp#L49-L51
 
-line 24 : 반복문 시작시 시간계산 시작
+line 26 : 반복문 시작시 시간계산 시작
 
-line 45 : 시간계산 종료
+line 49 : 시간계산 종료
 
-line 46 : 걸린 시간 계산(sec)
+line 50 : 걸린 시간 계산(sec)
 
 https://github.com/lsy0727/jetson_linetracer/blob/000168e56e40655f6ae08b9b924d29e525f42a4e/chap1/main.cpp#L50-L52
 
