@@ -75,7 +75,7 @@ https://github.com/lsy0727/jetson_linetracer/blob/80a19517260b8ffc05ea8293d8f007
   
 2. 메인라인은 빨간색 바운딩 박스와 중심점, 나머지 라인은 파란색 바운딩 박스와 중심점 표시
 
-https://github.com/lsy0727/jetson_linetracer/blob/d10a9cc21ece733cbd4b873532d85b372977e961/chap1/main.cpp#L40
+https://github.com/lsy0727/jetson_linetracer/blob/1619d478e0aeca9ee4d975dc6a2e0ee1ec71f651/chap1/main.cpp#L42
 
 현 시점 error 계산
 
