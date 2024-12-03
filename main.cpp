@@ -52,9 +52,9 @@ int main() {
 
     Dxl mx;
     if(!mx.open()) { cout <<"dynamixel open error"<<endl; return-1; }
-    bool mode =false;
+    bool mode =true;
     double lval = 0, rval = 0;
-    double k = 0.2;
+    double k = 0.118;
 
     while (true) {
         gettimeofday(&start,NULL);  //시작
