@@ -5,8 +5,7 @@ https://www.youtube.com/watch?v=y1GEPU2oyZY
 # <vision.cpp>
 
 ## 설명
-
-https://github.com/lsy0727/jetson_linetracer/blob/cd84c6d91a136ec3304e6f48c4f18abb1a66b83e/chap1/vision.cpp#L6-L22
+https://github.com/lsy0727/jetson_linetracer/blob/c17fe10008568a9095b55729a9b66723a896d8a7/chap1/vision.cpp#L6-L22
 
 * preprocess()함수 : 영상 전처리 함수
 
