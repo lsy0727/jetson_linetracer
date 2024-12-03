@@ -20,6 +20,8 @@ int main() {
     struct timeval start, end1;
     double diff1;
 
+    double lval = 0, rval = 0, k = 0.2;
+
     while (true) {
         gettimeofday(&start,NULL);  //시작
 
@@ -38,13 +40,15 @@ int main() {
         drawObjects(stats, centroids, tmp_pt, thresh);  // stats와 centroids 추가
         // error 계산
         error = getError(thresh, tmp_pt);
-
         // 'Esc' 키를 눌러 종료
         if (waitKey(30) == 27) break;
 
+        lval = 100 - k * error;
+        rval = -(100 + k * error);
+
         gettimeofday(&end1,NULL);   //종료시간
         diff1=end1.tv_sec + end1.tv_usec/1000000.0 - start.tv_sec - start.tv_usec/1000000.0;
-        cout << "error : " << error << "\ttime : " << diff1 << endl;
+        cout << "error : " << error << "\tlval : " << lval << "\trval : " << rval << "\ttime : " << diff1 << endl;
 
         // 결과 출력
         imshow("frame", frame);
