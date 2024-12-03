@@ -81,7 +81,7 @@ https://github.com/lsy0727/jetson_linetracer/blob/1619d478e0aeca9ee4d975dc6a2e0e
 
 https://github.com/lsy0727/jetson_linetracer/blob/f2d57161b318946144a367d8b9375d62ffd5dc43/chap1/main.cpp#L26
 
-https://github.com/lsy0727/jetson_linetracer/blob/2b5a30f8590fb0121b22cc7615241dde43cb77da/chap1/main.cpp#L45-L47
+https://github.com/lsy0727/jetson_linetracer/blob/4c6062c110504f4d9ca97dbf874aced3e1052934/chap1/main.cpp#L49-L51
 
 line 24 : 반복문 시작시 시간계산 시작
 
