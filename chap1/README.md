@@ -79,7 +79,7 @@ https://github.com/lsy0727/jetson_linetracer/blob/1619d478e0aeca9ee4d975dc6a2e0e
 
 현 시점 error 계산
 
-https://github.com/lsy0727/jetson_linetracer/blob/2d947b356bf090cd9afc0f4353637d248320d3ad/chap1/main.cpp#L24
+https://github.com/lsy0727/jetson_linetracer/blob/f2d57161b318946144a367d8b9375d62ffd5dc43/chap1/main.cpp#L26
 
 https://github.com/lsy0727/jetson_linetracer/blob/2b5a30f8590fb0121b22cc7615241dde43cb77da/chap1/main.cpp#L45-L47
 
