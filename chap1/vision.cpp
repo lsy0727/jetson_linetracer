@@ -55,7 +55,7 @@ void findObjects(Mat& thresh, Point& tmp_pt, Mat& stats, Mat& centroids) {
 }
 
 // 객체 표시
-void drawObjects(const Mat& stats, const Mat& centroids, const Point& tmp_pt, Mat& thresh) {
+void drawObjects(Mat& stats, Mat& centroids, Point& tmp_pt, Mat& thresh) {
     for (int i = 1; i < stats.rows; i++) {
         int area = stats.at<int>(i, 4);
         if (area > 100) {
@@ -76,6 +76,6 @@ void drawObjects(const Mat& stats, const Mat& centroids, const Point& tmp_pt, Ma
 }
 
 // error 계산
-int getError(const Mat& thresh, const Point& tmp_pt) {
+int getError(Mat& thresh, Point& tmp_pt) {
     return ((thresh.cols / 2) - tmp_pt.x);
 }
