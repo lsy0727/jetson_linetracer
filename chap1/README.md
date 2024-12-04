@@ -14,7 +14,7 @@ line 14~15 : 영상의 밝기 보정 (평균 100으로)
 line 16 : 임계값 너무 작으면 노이즈가 생기고, 높으면 라인이 사라짐. 너무높지만 않으면 130보다 좀더 높아도 괜찮음.
 
 
-https://github.com/lsy0727/jetson_linetracer/blob/8d3c157e0ae16e73e16c9df9cfe38caf0e8e46ad/chap1/vision.cpp#L25-L55
+https://github.com/lsy0727/jetson_linetracer/blob/066bfa827bbd73ece02550065d6da75e55f1d83d/chap1/vision.cpp#L25-L55
 
 * findObjects()함수 : 객체 검출 함수
 
