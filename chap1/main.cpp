@@ -38,7 +38,7 @@ int main() {
     VideoWriter writer3(dst3, 0, (double)30, Size(640, 90), true);
     if (!writer3.isOpened()) { cerr << "Writer open failed!" << endl; return -1; }
 
-    bool first_run = true;    //첫 실행여부 판단 트리거
+    bool first_run = true;    //최초 실행여부 판단 트리거
     Point tmp_pt;
     Mat frame, gray, thresh, stats, centroids;
     int error;
