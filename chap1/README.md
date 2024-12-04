@@ -6,7 +6,7 @@ https://www.youtube.com/watch?v=vO5_AskTKCA
 
 - inline 검출
 
-https://www.youtube.com/watch?v=jb0qkBK_gnQ
+https://www.youtube.com/watch?v=zr1YfN2--Fc
 
 # <vision.cpp>
 
