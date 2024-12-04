@@ -79,9 +79,9 @@ error = getError(thresh, tmp_pt);
 
 현 시점 error 계산
 
-https://github.com/lsy0727/jetson_linetracer/blob/f2d57161b318946144a367d8b9375d62ffd5dc43/chap1/main.cpp#L26
+https://github.com/lsy0727/jetson_linetracer/blob/b50295ef34b53ead141986eba736ce2ba3aa1249/chap1/main.cpp#L56
 
-https://github.com/lsy0727/jetson_linetracer/blob/4c6062c110504f4d9ca97dbf874aced3e1052934/chap1/main.cpp#L49-L51
+https://github.com/lsy0727/jetson_linetracer/blob/b50295ef34b53ead141986eba736ce2ba3aa1249/chap1/main.cpp#L81-L83
 
 line 26 : 반복문 시작시 시간계산 시작
 
