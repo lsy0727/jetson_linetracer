@@ -59,7 +59,7 @@ https://github.com/lsy0727/jetson_linetracer/blob/7ef5a14f2f97c535510f7268733951
 
 영상을 불러옴
 
-https://github.com/lsy0727/jetson_linetracer/blob/261123a09fc331b84b7809f7bebc751cf8640e5e/chap1/main.cpp#L26-L27
+https://github.com/lsy0727/jetson_linetracer/blob/915247fd4fa228f9e15e1d91068828fb530be84a/chap1/main.cpp#L58-L59
 
 영상 전처리
 
