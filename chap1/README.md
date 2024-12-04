@@ -1,6 +1,12 @@
 # 실행결과
 
-https://www.youtube.com/watch?v=y1GEPU2oyZY
+- outline 검출
+
+https://www.youtube.com/watch?v=XBIkqfEnyew
+
+- inline 검출
+
+https://www.youtube.com/watch?v=jb0qkBK_gnQ
 
 # <vision.cpp>
 
