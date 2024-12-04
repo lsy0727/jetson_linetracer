@@ -40,7 +40,7 @@ tmp_pt : 메인라인의 무게중심 좌표가 저장되어있음
 메인라인에는 빨간색 바운딩박스와 점을 찍고, 나머지 라인에는 파란색 바운딩박스와 점을 찍음.
 
 
-https://github.com/lsy0727/jetson_linetracer/blob/8e02e5aee675be47bad4befd80a113b39d996af2/chap1/vision.cpp#L79-L81
+https://github.com/lsy0727/jetson_linetracer/blob/fb40dde10008374f52f945060cc801049d7f6a36/chap1/vision.cpp#L79-L81
 
 * getError()함수 : 위치오차를 계산해주는 함수
 
