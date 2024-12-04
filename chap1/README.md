@@ -63,7 +63,7 @@ https://github.com/lsy0727/jetson_linetracer/blob/915247fd4fa228f9e15e1d91068828
 
 영상 전처리
 
-https://github.com/lsy0727/jetson_linetracer/blob/c406770232e3fcdf98741f6cffa880b8882f5814/chap1/main.cpp#L30-L33
+https://github.com/lsy0727/jetson_linetracer/blob/264c3858304777b9c9f430937db3807fb0978d0a/chap1/main.cpp#L62-L65
 
 최초 실행시 기준 설정
 
