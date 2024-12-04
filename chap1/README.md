@@ -55,7 +55,7 @@ error = (로봇 중앙 x좌표) - (메인라인 중앙 x좌표)
 
 ## 설명
 
-https://github.com/lsy0727/jetson_linetracer/blob/82b25fbad80dfb97adc4edf82c793f36b098455e/chap1/main.cpp#L6-L10
+https://github.com/lsy0727/jetson_linetracer/blob/7ef5a14f2f97c535510f72687339519513aead9a/chap1/main.cpp#L17-L18
 
 영상을 불러옴
 
