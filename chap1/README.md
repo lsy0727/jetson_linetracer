@@ -2,7 +2,7 @@
 
 - outline 검출
 
-https://www.youtube.com/watch?v=XBIkqfEnyew
+https://www.youtube.com/watch?v=vO5_AskTKCA
 
 - inline 검출
 
