@@ -67,7 +67,7 @@ https://github.com/lsy0727/jetson_linetracer/blob/264c3858304777b9c9f430937db380
 
 최초 실행시 기준 설정
 
-https://github.com/lsy0727/jetson_linetracer/blob/80a19517260b8ffc05ea8293d8f007a4e2656ae4/chap1/main.cpp#L37-L40
+https://github.com/lsy0727/jetson_linetracer/blob/b4731212bccaa30cfebd02233539394ce138941a/chap1/main.cpp#L67-L70
 
 최초 실행시의 기준 라인을 메인라인으로 생각했을 때
 
