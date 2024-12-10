@@ -30,6 +30,8 @@ https://github.com/lsy0727/jetson_linetracer/blob/e9abf2407bef8c092de41f697ba253
 
 트리거 true인 경우 모터 제어함수 호출
 
+https://github.com/lsy0727/jetson_linetracer/blob/ba7f621d3793f413d16b12f64700870fb09fc976/chap2/main.cpp#L91-L96
+
 https://github.com/lsy0727/jetson_linetracer/blob/5ea5b4c461c22762aa8f1140c5dfdd00e1455562/chap2/main.cpp#L92
 
 chap1에서 usleep의 딜레이 시간이 크게 변하는 것을 수정해 오차가 줄어들었음
