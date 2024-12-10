@@ -46,7 +46,7 @@ false인 경우 모터속도 0으로 제어
 
 https://github.com/lsy0727/jetson_linetracer/blob/2a7b77663f22ed96df5d09476e4b4bc0473ad82a/chap2/main.cpp#L59-L61
 
-https://github.com/lsy0727/jetson_linetracer/blob/ba7f621d3793f413d16b12f64700870fb09fc976/chap2/main.cpp#L91-L96
+https://github.com/lsy0727/jetson_linetracer/blob/168a7855c93ecc1393c740738a6375cb75ee6775/chap2/main.cpp#L92-L98
 
 https://github.com/lsy0727/jetson_linetracer/blob/5ea5b4c461c22762aa8f1140c5dfdd00e1455562/chap2/main.cpp#L92\
 
