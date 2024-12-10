@@ -7,3 +7,5 @@
 ## chap2 (motion_control)
 
 dxl 제어
+
+## chap3 (최종)
