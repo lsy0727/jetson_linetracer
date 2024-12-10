@@ -30,7 +30,11 @@ ctrl+c입력시 종료
 
 https://github.com/lsy0727/jetson_linetracer/blob/e9abf2407bef8c092de41f697ba25314b2ad8dad/chap2/main.cpp#L89
 
-트리거 true인 경우 모터 제어함수 호출
+https://github.com/lsy0727/jetson_linetracer/blob/301b22bab0774ea643963c426204192f0b762872/chap2/main.cpp#L89-L90
+
+트리거 true인 경우 객체에 따른 모터 제어
+
+false인 경우 모터속도 0으로 제어
 
 ## 코드수정
 
