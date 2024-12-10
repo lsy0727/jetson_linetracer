@@ -55,8 +55,3 @@ runtime_diff : 무한루프 내의 함수 호출 등의 시간을 측정한 변�
 diff = (원하는 딜레이 시간) - (runtime_diff)
 
 측정하는 부분에서 약간의 오차가 생기겠지만, 이전 코드보다 오차가 줄어들었음
-
-
-# 블록도
-
-![image](https://github.com/user-attachments/assets/31085376-6b1a-4136-8583-3f0b7a74a940)
