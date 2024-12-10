@@ -76,10 +76,10 @@ int main() {
         // error 계산
         error = getError(thresh, tmp_pt);
 
-        if(mx.kbhit())
+        if(mx.kbhit()) // 없으면 제어 멈춤
         {
             char ch = mx.getch();
-            if(ch == 'q') break;
+            if(ch == 'q') mode = false;
             else if(ch == 's') mode = true;
         }
         if (ctrl_c_pressed) break;  //ctrl+c 입력시 탈출
@@ -87,6 +87,7 @@ int main() {
         lval = 100 - k* error;
         rval = -(100 + k* error);
         if(mode) mx.setVelocity(lval, rval);
+        else mx.setVelocity(0, 0);
 
         gettimeofday(&runtime_end, NULL);
         runtime_diff = 30 - (runtime_end.tv_sec + runtime_end.tv_usec/1000000.0 - runtime_start.tv_sec - runtime_start.tv_usec/1000000.0)* 1000;
