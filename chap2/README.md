@@ -48,7 +48,7 @@ https://github.com/lsy0727/jetson_linetracer/blob/2a7b77663f22ed96df5d09476e4b4b
 
 https://github.com/lsy0727/jetson_linetracer/blob/168a7855c93ecc1393c740738a6375cb75ee6775/chap2/main.cpp#L92-L98
 
-https://github.com/lsy0727/jetson_linetracer/blob/5ea5b4c461c22762aa8f1140c5dfdd00e1455562/chap2/main.cpp#L92
+https://github.com/lsy0727/jetson_linetracer/blob/5ea5b4c461c22762aa8f1140c5dfdd00e1455562/chap2/main.cpp#L93
 
 runtime_diff : 무한루프 내의 함수 호출 등의 시간을 측정한 변수
 
