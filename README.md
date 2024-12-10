@@ -1,9 +1,9 @@
 # linetracer
 
-## chap1 (linedetect)
+## chap1 (line_detect)
 
 라인검출 - 영상처리 라이브러리 <vision.cpp> <vision.hpp> 구현
 
-## vision
+## chap2 (motion_control)
 
-모션제어 - 모터 동작
+dxl 제어
