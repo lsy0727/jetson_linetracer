@@ -76,7 +76,7 @@ int main() {
         // error 계산
         error = getError(thresh, tmp_pt);
 
-        if(mx.kbhit()) // 없으면 제어 멈춤
+        if(mx.kbhit())
         {
             char ch = mx.getch();
             if(ch == 'q') break;
