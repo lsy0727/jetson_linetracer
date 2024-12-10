@@ -22,9 +22,9 @@ https://github.com/lsy0727/jetson_linetracer/blob/337fb46e7de0354ca9e719558d5cba
 
 모터 구동 on 트리거
 
-https://github.com/lsy0727/jetson_linetracer/blob/a859dc74b57018807ab3c000480c630edc91d8ae/chap2/main.cpp#L79-L85
+https://github.com/lsy0727/jetson_linetracer/blob/583be6f2cfc1241c569b71cfcae80ae66183c2ec/chap2/main.cpp#L79-L85
 
-키보드로부터 'q'입력시 종료, 's'입력시 모터 구동 on 트리거 true
+키보드로부터 'q'입력시 모터 구동 트리거 false, 's'입력시 모터 구동 트리거 true
 
 ctrl+c입력시 종료
 
