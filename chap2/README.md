@@ -20,7 +20,7 @@ https://github.com/lsy0727/jetson_linetracer/blob/main/chap1/README.md
 
 https://github.com/lsy0727/jetson_linetracer/blob/337fb46e7de0354ca9e719558d5cbafdbc0647ea/chap2/main.cpp#L55
 
-모터 구동 on 트리거
+모터 구동 on/off 트리거
 
 https://github.com/lsy0727/jetson_linetracer/blob/583be6f2cfc1241c569b71cfcae80ae66183c2ec/chap2/main.cpp#L79-L85
 
