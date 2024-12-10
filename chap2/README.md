@@ -19,3 +19,6 @@ https://github.com/lsy0727/jetson_linetracer/blob/main/chap1/README.md
 https://github.com/lsy0727/jetson_linetracer/blob/337fb46e7de0354ca9e719558d5cbafdbc0647ea/chap2/main.cpp#L55
 
 모터 구동 on 트리거
+
+https://github.com/lsy0727/jetson_linetracer/blob/a859dc74b57018807ab3c000480c630edc91d8ae/chap2/main.cpp#L79-L85
+
