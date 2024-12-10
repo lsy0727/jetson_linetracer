@@ -30,9 +30,11 @@ ctrl+c입력시 종료
 
 https://github.com/lsy0727/jetson_linetracer/blob/a91797fc3ddfc7b53cbb3f234ffdc625190ca114/chap2/main.cpp#L57
 
-게인값
+https://github.com/lsy0727/jetson_linetracer/blob/2f078040f3728bdab3a0a250542da4c5e7241792/chap2/main.cpp#L87-L88
 
-https://github.com/lsy0727/jetson_linetracer/blob/e9abf2407bef8c092de41f697ba25314b2ad8dad/chap2/main.cpp#L89
+게인값에 따라 바퀴의 민감도 조정
+
+게인값이 클수록 회전이 빠르고, 작을수록 회전이 느림
 
 https://github.com/lsy0727/jetson_linetracer/blob/301b22bab0774ea643963c426204192f0b762872/chap2/main.cpp#L89-L90
 
