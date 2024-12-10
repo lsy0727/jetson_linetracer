@@ -28,6 +28,10 @@ https://github.com/lsy0727/jetson_linetracer/blob/583be6f2cfc1241c569b71cfcae80a
 
 ctrl+c입력시 종료
 
+https://github.com/lsy0727/jetson_linetracer/blob/a91797fc3ddfc7b53cbb3f234ffdc625190ca114/chap2/main.cpp#L57
+
+게인값
+
 https://github.com/lsy0727/jetson_linetracer/blob/e9abf2407bef8c092de41f697ba25314b2ad8dad/chap2/main.cpp#L89
 
 https://github.com/lsy0727/jetson_linetracer/blob/301b22bab0774ea643963c426204192f0b762872/chap2/main.cpp#L89-L90
