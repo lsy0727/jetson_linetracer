@@ -9,14 +9,15 @@ using namespace cv;
 bool ctrl_c_pressed= false;
 void ctrlc_handler(int) { ctrl_c_pressed= true; }
 int main() {
-    // string src = "nvarguscamerasrc sensor-id=0 ! \
-    //     video/x-raw(memory:NVMM), width=(int)640, height=(int)360, \
-    //     format=(string)NV12, framerate=(fraction)30/1 ! \
-    //     nvvidconv flip-method=0 ! video/x-raw, \
-    //     width=(int)640, height=(int)360, format=(string)BGRx ! \
-    //     videoconvert ! video/x-raw, format=(string)BGR ! appsink";
-    VideoCapture source("/home/jetson/workspace/linedetect_sim/simulation/7_lt_ccw_100rpm_in.mp4");
-    if (!source.isOpened()) { cerr << "video open failed!" << endl; return -1; }
+    string src = "nvarguscamerasrc sensor-id=0 ! \
+        video/x-raw(memory:NVMM), width=(int)640, height=(int)360, \
+        format=(string)NV12, framerate=(fraction)30/1 ! \
+        nvvidconv flip-method=0 ! video/x-raw, \
+        width=(int)640, height=(int)360, format=(string)BGRx ! \
+        videoconvert ! video/x-raw, format=(string)BGR ! appsink";
+    VideoCapture source(src, CAP_GSTREAMER);
+    // VideoCapture source("/home/jetson/workspace/linedetect_sim/simulation/5_lt_cw_100rpm_out.mp4");
+    // if (!source.isOpened()) { cerr << "video open failed!" << endl; return -1; }
 
     string dst1 = "appsrc ! videoconvert ! video/x-raw, format=BGRx ! \
         nvvidconv ! nvv4l2h264enc insert-sps-pps=true ! \
@@ -54,7 +55,7 @@ int main() {
     if(!mx.open()) { cout <<"dynamixel open error"<<endl; return-1; }
     bool mode =false;
     double lval = 0, rval = 0;
-    double k = 0.18;    //0.18
+    double k = 0.185;    //0.185
 
     while (true) {
         gettimeofday(&start,NULL);  //시작
@@ -76,7 +77,7 @@ int main() {
         // error 계산
         error = getError(thresh, tmp_pt);
 
-        if(mx.kbhit()) // 없으면 제어 멈춤
+        if(mx.kbhit())
         {
             char ch = mx.getch();
             if(ch == 'q') mode = false;
