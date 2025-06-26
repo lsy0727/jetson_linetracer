@@ -9,16 +9,17 @@ void preprocess(VideoCapture& source, Mat& frame, Mat& gray, Mat& thresh) {
         cerr << "empty frame" << endl;
         return;
     }
+
+    //자르기
+    int r_pts = frame.rows / 4 * 3;
+    Rect r(0, r_pts, frame.cols, frame.rows - r_pts);
+    frame = frame(r);
+    
     //전처리
     cvtColor(frame, gray, COLOR_BGR2GRAY);
     Scalar bright_avg = mean(gray); // 밝기 평균
     gray = gray + (100 - bright_avg[0]);
     threshold(gray, thresh, 130, 255, THRESH_BINARY);
-
-    //자르기
-    int r_pts = thresh.rows / 4 * 3;
-    Rect r(0, r_pts, thresh.cols, thresh.rows - r_pts);
-    thresh = thresh(r);
 }
 
 // 객체 찾기
